@@ -1,10 +1,13 @@
 package hu.petrik.kolcsonzo;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
     private static List<Kolcsonozheto> katalogus = new ArrayList<>();
+    private static List<Dvd> dvdk = new ArrayList<>();
 
     public static void main(String[] args) {
         Konyv konyv1 = new Konyv("The Fellowship of the Ring", "J. R. R. Tolkien", "IS-1234");
@@ -25,21 +28,40 @@ public class Main {
         katalogus.add(konyv1);
         katalogus.add(konyv2);
         katalogus.add(konyv3);
+
         katalogus.add(dvd1);
         katalogus.add(dvd2);
         katalogus.add(dvd3);
         katalogus.add(dvd4);
         katalogus.add(dvd5);
         katalogus.add(dvd6);
+
         katalogus.add(ujsag1);
         katalogus.add(ujsag2);
         katalogus.add(ujsag3);
         katalogus.add(ujsag4);
 
+        dvdk.add(dvd1);
+        dvdk.add(dvd2);
+        dvdk.add(dvd3);
+        dvdk.add(dvd4);
+        dvdk.add(dvd5);
+        dvdk.add(dvd6);
 
+        System.out.println();
         for (Kolcsonozheto k : katalogus){
             System.out.println(k.megjelenitendoNev());
+            if (k instanceof Konyv){
+                System.out.println("\t"+((Konyv) k).getIsbn());
+            }
 
         }
+
+        System.out.println();
+        Collections.sort(dvdk);
+        for (Dvd dvd : dvdk){
+            System.out.println(dvd.megjelenitendoNev());
+        }
     }
+
 }
